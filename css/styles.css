@@ -1,0 +1,34 @@
+body {
+	padding-top: 30px;
+}
+
+.main-header {
+	font-family: "Roboto", sans-serif;
+	text-align: center;
+}
+
+.form-div {
+	margin-right: auto;
+	margin-left: auto;
+	border: 2px solid red;
+	max-width: 33.125rem;
+	text-align: center;
+}
+
+.input {
+	border: none;
+	border-bottom: 2px solid #00A2FF;
+}
+
+input, textarea, select { 
+    outline: none;
+}
+
+.main {
+	background-color: red;
+	max-width: 50rem;
+	height: 30rem;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}

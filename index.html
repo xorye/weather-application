@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>Weather Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- jQuery 3.2.1 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
+    crossorigin="anonymous">
+    </script>
+
+    <!-- jQuery UI -->
+    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous">
+    </script>
+
+    <!-- External javascript and CSS -->
+    <script type="text/javascript" src="weather.js" ></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+
+  </head>
+
+
+  <body>
+
+  <div class="title-bar">
+    <h1 class="main-header">Weather Application</h1>
+  </div>
+
+  <div class="main">
+    <div class="form-div">
+      <p>
+      <form id="city-input">
+        <input class="input" type="text" id="city">
+      </form>
+      </p>
+
+      <p><button class="btn btn-primary" id="btn">Get Weather</button></p>
+    </div>
+  </div>
+
+    
+
+
+  </body>
+</html>
