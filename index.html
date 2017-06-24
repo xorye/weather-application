@@ -11,13 +11,14 @@
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+
     <!-- jQuery 3.2.1 -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
     crossorigin="anonymous">
     </script>
 
     <!-- jQuery UI -->
-    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous">
     </script>
 
     <!-- External javascript and CSS -->
@@ -28,7 +29,9 @@
   </head>
 
 
-  <body>
+  <body class="grad">
+
+<!--   <img class="bg" src="images/neutral-large.jpg"> -->
 
   <div class="title-bar">
     <h1 class="main-header">Weather Application</h1>
@@ -38,9 +41,19 @@
     <div class="form-div">
       <p>
       <form id="city-input">
-        <input class="input" type="text" id="city">
+        <input type="text" id="city" placeholder="Please enter city name">
       </form>
       </p>
+
+      <div class="switch">
+        <input id="cmn-toggle-1" class="toggle toggle-round" type="checkbox">
+        <label for="cmn-toggle-1"></label>
+      </div>
+
+
+
+
+
 
       <p><button class="btn btn-primary" id="btn">Get Weather</button></p>
     </div>

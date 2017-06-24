@@ -1,34 +1,66 @@
-body {
-	padding-top: 30px;
+@import "toggle.css";
+
+html {
+	height: 100%;
 }
 
 .main-header {
+	margin-top: 1.875rem;
 	font-family: "Roboto", sans-serif;
+	color: #FFF;
 	text-align: center;
 }
 
-.form-div {
-	margin-right: auto;
+.main {
+	background-color: #FFF;
+	position: relative;
+	max-width: 50rem;
+	height: 17rem;
 	margin-left: auto;
-	border: 2px solid red;
-	max-width: 33.125rem;
-	text-align: center;
+	margin-right: auto;
+	border-radius: 10px;
+	margin-bottom: 100px;
+	opacity: 0.8;
 }
 
-.input {
-	border: none;
-	border-bottom: 2px solid #00A2FF;
+.form-div, .data-div { 
+	position: absolute;
+	top: 50%;
+	transform: translateY(-70%);
+	font-family: "Roboto", sans-serif;
+	width: 100%;
+	/*centering content horizontally*/
+	text-align: center;
 }
 
 input, textarea, select { 
     outline: none;
 }
 
-.main {
-	background-color: red;
-	max-width: 50rem;
-	height: 30rem;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 5px;
+.data {
+	font-size: 2rem;
 }
+
+.grad {
+
+	background: #415685; 
+	background: linear-gradient(to bottom right, #415685, #c2ced6);
+}
+
+.btn {
+	font-family: "Roboto", sans-serif;
+
+}
+
+input {
+	font-family: "Roboto", sans-serif;	
+	font-size: 1.6rem;
+	text-align: center;
+	border: none;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+.hidden {
+	display: none;
+}
+
