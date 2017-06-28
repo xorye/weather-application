@@ -34,6 +34,15 @@ html {
 	text-align: center;
 }
 
+.data-div {
+	background-color: red;
+}
+
+.data-table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .city-input, textarea, select { 
     outline: none;
 }

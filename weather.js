@@ -47,7 +47,8 @@ function getWeatherJson(city, metric) {
 
 
 	$.ajax({
-		url: "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units="+units+"&APPID=9163b6aabce8d204588292197d456a76",
+		// url: "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units="+units+"&APPID=9163b6aabce8d204588292197d456a76",
+		url: "http://api.openweathermap.org/data/2.5/forecast/daily?q="+city+"&units="+units+"&cnt=5&APPID=9163b6aabce8d204588292197d456a76",
 		success: function(data) {
 			outputData(data, metric);
 		}
@@ -57,23 +58,58 @@ function getWeatherJson(city, metric) {
 
 function outputData(data, metric) {
 
-	var desc = data.weather[0].description;
-	desc = desc.charAt(0).toUpperCase() + desc.substring(1);
-	var cityName = data.name;
-	var countryName = data.sys.country;
-	var degrees = data.main.temp;
+	// var desc = data.weather[0].description;
+	// desc = desc.charAt(0).toUpperCase() + desc.substring(1);
+	var cityName = data.city.name;
+	var countryName = data.city.country;
+	// var degrees = data.main.temp;
 	var units;
 
+	var thirdDay = getDate(data.list[2].dt);
+	var fourthDay = getDate(data.list[3].dt);
+	var fifthDay = getDate(data.list[4].dt);
+
+	
 	if (metric) units = "&#176;C";
 	else units = "&#176;F"
 
 	$(".main").append('<div class="data-div"></div>');
 	$(".main").css("height", "30rem");
-	$(".data-div").append("<p class='data'>Location: "+ cityName +", "+ countryName+"</p>");
-	$(".data-div").append("<p class='data'>Temperature: "+ degrees +" "+units+"</p>");
-	$(".data-div").append("<p class='data'>"+ desc +"</p>");
+	// $(".data-div").append("<p class='data'>Location: "+ cityName +", "+ countryName+"</p>");
+	// $(".data-div").append("<p class='data'>Temperature: "+ degrees +" "+units+"</p>");
+	// $(".data-div").append("<p class='data'>"+ desc +"</p>");
+
+	$(".data-div").append("\
+		<table class='data-table'> \
+		<tr> \
+		<th>Today</th> \
+		<th>Tommorrow</th> \
+		<th>"+thirdDay+"</th> \
+		<th>"+fourthDay+"</th> \
+		<th>"+fifthDay+"</th> \
+		</tr> \
+		<tr> \
+		<td id='first'>30C<br/>sunny</td> \
+		<td id='second'>30C<br/>windy</td> \
+		<td id='third'>30C<br/>rainy</td> \
+		<td id='fourth'>30C<br/>cloudy</td> \
+		<td id='fifth'>30C<br/>thunderstorms</td> \
+		</tr> \
+		</table>");
+
+	populateTable();
 }
 
+/**
+ * Returns date from epoch
+ * @param {String epxoxh}
+ * @return {String}
+ */
+function getDate(epoch){
+	var date = new Date(0);
+	date.setUTCSeconds(epoch);
+	return date.toString().substring(4, 10);
+}
 
 /**
  * Fades out .form-div
@@ -81,5 +117,9 @@ function outputData(data, metric) {
  */
 function fadeOutForm() {
 	$(".form-div").fadeOut("slow");
+}
+
+function populateTable() {
+
 }
 
