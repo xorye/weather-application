@@ -7,12 +7,13 @@ html {
 .main-header {
 	margin-top: 1.875rem;
 	font-family: "Roboto", sans-serif;
+	font-weight: 100;
 	color: #FFF;
 	text-align: center;
 }
 
 .main {
-	background-color: #FFF;
+	background-color: rgba(255, 255, 255, 1);
 	position: relative;
 	max-width: 50rem;
 	height: 17rem;
@@ -21,19 +22,19 @@ html {
 	border-radius: 10px;
 	margin-bottom: 100px;
 	opacity: 0.8;
+	overflow: hidden;
 }
 
 .form-div, .data-div { 
 	position: absolute;
 	top: 50%;
-	transform: translateY(-70%);
-	font-family: "Roboto", sans-serif;
+	transform: translateY(-60%);
 	width: 100%;
 	/*centering content horizontally*/
 	text-align: center;
 }
 
-input, textarea, select { 
+.city-input, textarea, select { 
     outline: none;
 }
 
@@ -43,24 +44,112 @@ input, textarea, select {
 
 .grad {
 
-	background: #415685; 
-	background: linear-gradient(to bottom right, #415685, #c2ced6);
+	background: linear-gradient(to bottom right, #435989, #c2ced6) top center no-repeat;
+	background-size: cover;
 }
 
 .btn {
 	font-family: "Roboto", sans-serif;
-
+	font-weight: 300;
+	border-radius: 0%;
+	background-color: #435989;
+	border-color: #435989;
+	color: white;
 }
 
-input {
+.btn:hover {
+	background-color: #657eb3;
+	border-color: #657eb3;
+}
+
+.city-input {
 	font-family: "Roboto", sans-serif;	
+	font-weight: 300;
 	font-size: 1.6rem;
 	text-align: center;
 	border: none;
 	border-bottom: 1px solid #d9d9d9;
+
 }
 
 .hidden {
 	display: none;
 }
+
+.unit-toggle-div {
+	/*position: absolute;*/
+/*	right: 0px;
+	top: 5px;*/
+	/*background-color: red;*/
+	padding-top: 10px;
+	width: 100px;
+	height: 50px;
+}
+
+.unit-toggle {
+	position: absolute;
+	margin-left: -9000px;
+	display: none;
+}
+
+.unit-toggle-label {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	color: #FFF;
+	position: relative;
+	top: -55px;
+	left: 80px;
+	cursor: pointer;
+	outline: none;
+	padding: 2px;
+	width: 40px;
+	height: 40px;
+	transition: background 0.3s;
+}
+
+label.unit-toggle-label:hover:before, label.unit-toggle-label:hover:after {
+	background-color: #657eb3;
+}
+
+label.unit-toggle-label:before, label.unit-toggle-label:after{
+	/*for this to work, display must be block, and position must be absolute.*/
+	
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: 20px;
+	text-align: center;
+	border: 1px solid #EEE;
+	line-height: 38px;
+	transition: transform 0.5s;
+	background-color: #435989;
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+
+label.unit-toggle-label:before {
+	content: attr(data-off);
+	
+}
+
+label.unit-toggle-label:after {
+	content: attr(data-on);
+	transform: rotateY(180deg);
+}
+
+.unit-toggle:checked + label:before {
+	transform: rotateY(180deg);
+}
+
+.unit-toggle:checked + label:after {
+	transform: rotateY(0deg);
+}
+
 
