@@ -5,11 +5,12 @@ html {
 }
 
 .main-header {
-	margin-top: 1.875rem;
+        margin-top: 1.875rem;
 	font-family: "Roboto", sans-serif;
-	font-weight: 100;
+	font-weight: 300;
 	color: #FFF;
 	text-align: center;
+	font-size: 55px;
 }
 
 .main {
@@ -35,12 +36,51 @@ html {
 }
 
 .data-div {
-	background-color: red;
+	margin-top: -50px;
+	/*background-color: red;*/
+}
+
+
+.data-table-header {
+	margin-bottom: 20px;
 }
 
 .data-table {
 	margin-left: auto;
 	margin-right: auto;
+	table-layout: fixed;
+}
+
+.data-table-header {
+	margin-bottom: 0px;
+}
+
+.data-table-day-header {
+	font-size: 25px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	
+}
+
+.data-table-sub-header, .data-table-header {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
+
+.data-table-sub-header {
+	margin-bottom: 40px;
+}
+
+th {
+	text-align: center;
+}
+
+td {
+	width: 165px;
+}
+
+td + td, th + th {
+	border-left: 1px solid #d9d9d9;
 }
 
 .city-input, textarea, select { 
