@@ -58,11 +58,8 @@ function getWeatherJson(city, metric) {
 
 function outputData(data, metric) {
 
-	// var desc = data.weather[0].description;
-	// desc = desc.charAt(0).toUpperCase() + desc.substring(1);
 	var cityName = data.city.name;
 	var countryName = getCountryName(data.city.country);
-	// var degrees = data.main.temp;
 	var units;
 
 	var thirdDay = getDate(data.list[2].dt);
@@ -73,16 +70,17 @@ function outputData(data, metric) {
 	if (metric) units = "&#176;C";
 	else units = "&#176;F"
 
-	$(".main").append('<div class="data-div"></div>');
-	$(".main").css("height", "30rem");
+	$(".main").append('<div class="data-div hidden"></div>');
+	$(".main").animate({height: "30rem"}, 200, function() {
+		$(".data-div").fadeIn();
+	});
 	// $(".data-div").append("<p class='data'>Location: "+ cityName +", "+ countryName+"</p>");
 	// $(".data-div").append("<p class='data'>Temperature: "+ degrees +" "+units+"</p>");
 	// $(".data-div").append("<p class='data'>"+ desc +"</p>");
 
-	$(".data-div").append("<h1 class='data-table-header'>5 Day Weather Forcast</h1>");
-	$(".data-div").append("<h2 class='data-table-sub-header'>"+cityName+", "+countryName+"</h2>");
-
 	$(".data-div").append("\
+		<h1 class='data-table-header'>5 Day Weather Forcast</h1> \
+		<h2 class='data-table-sub-header'>"+cityName+", "+countryName+"</h2> \
 		<table class='data-table'> \
 		<tr> \
 		<th class='data-table-day-header'>Today</th> \
@@ -98,7 +96,10 @@ function outputData(data, metric) {
 		<td id='weather-box-4'></td> \
 		<td id='weather-box-5'></td> \
 		</tr> \
-		</table>");
+		</table> \
+		<p class='credit-link'>Weather icons<a href='http://www.flaticon.com/authors/smartline'> designed by Smartline from Flaticon</a></p> \
+		");
+
 
 	populateTable(data, units);
 }
@@ -126,13 +127,16 @@ function fadeOutForm() {
 
 function populateTable(data, units) {
 	
-	var high, low, desc;
+	var high, low, desc, icon;
 
 	for (i = 0; i < 5; i++) {
 		high = data.list[i].temp.max;
 		low = data.list[i].temp.min;
 		desc = data.list[i].weather[0].description;
 		desc = desc.charAt(0).toUpperCase() + desc.substring(1);
+		icon = data.list[i].weather[0].icon;
+
+		$("#weather-box-"+(i+1)).append("<img class='weather-icon' src='./images/svg/"+icon.substring(0, 2)+".svg'>");
 		$("#weather-box-"+(i+1)).append("<p>High: "+high+" "+units+"</br>Low: "+low+" "+units+"</br>"+desc+"</p>");
 	}
 }
@@ -319,7 +323,7 @@ var isoCountries = {
     'QA' : 'Qatar',
     'RE' : 'Reunion',
     'RO' : 'Romania',
-    'RU' : 'Russian Federation',
+    'RU' : 'Russia',
     'RW' : 'Rwanda',
     'BL' : 'Saint Barthelemy',
     'SH' : 'Saint Helena',
